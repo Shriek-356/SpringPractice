@@ -4,6 +4,8 @@
  */
 package com.vdk.controllers;
 
+import com.vdk.services.CategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class indexController {
     
+    @Autowired
+    private CategoryService categoryService;
+    
     @RequestMapping("/")    
     public String index(Model model){
-        model.addAttribute("msg", "Xin chao");
+        model.addAttribute("categories", this.categoryService.getCatesList());
         return "index";
     }
 }
