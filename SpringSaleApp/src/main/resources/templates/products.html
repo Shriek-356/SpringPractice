@@ -14,7 +14,7 @@
                 <label for="name">Ten San Pham</label>
                 <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Ten San Pham"> <!Dung th:field de lien ket cac truong trong pojo>
             </div>
-            <div class="mb-3 mt-3">
+            <div class="mb-3 mt-3"
                 <label for="price">Gia San Pham</label>
                 <input type="text" class="form-control" th:field="*{price}" id="price" placeholder="Gia San Pham">
             </div>
@@ -27,7 +27,12 @@
             </div>
             
             <div class="mb-3 mt-3">
-                <button class="btn btn-info">Them san Pham</button>
+                <input type="hidden" th:field="*{id}" />
+                <input type="hidden" th:field="*{image}"/>
+                <button class="btn btn-info">
+                    <span th:if="${product.id==null}" >Them san Pham</span>
+                    <span th:unless="${product.id==null}" >cap nhat san Pham</span>
+                </button>
             </div>
         </form>
     </main>

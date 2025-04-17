@@ -46,8 +46,8 @@
                     <td th:text="${p.name}"></td>
                     <td th:text="${p.price + ' VND '}"></td>
                     <td>
-                        <a href='#' class ="btn btn-info">Cap Nhat</a>
-                        <button class=" btn btn-danger">Xoa</button>
+                        <a th:href="@{/products/{id}(id=${p.id})}" class ="btn btn-info">Cap Nhat</a>
+                       <a th:href="@{/delete/{id}(id=${p.id})}" class ="btn btn-info">Xoa</a>
                     </td>
                 </tr>                
             </tbody>
