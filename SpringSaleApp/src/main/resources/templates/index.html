@@ -7,8 +7,10 @@
 <body>
     <div th:replace ="base :: header"></div>
     <main>
+        
+        <a th:href="@{/products}" class="btn btn-success mt-1">Them san pham</a>
 
-        <form action="/action_page.php">
+        <form th:action="@{/}">
             <div class="mb-3 mt-3">
                 <input type="text" class="form-control" placeholder="Từ khóa" name="kw">
             </div>
@@ -28,27 +30,26 @@
         <table class="table table-bordered table-sm">
             <thead>
                 <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
+                    <th></th>
+                    <th>ID</th>
+                    <th>Ten San Pham</th>
+                    <th>Gia San Pham</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                </tr>
-                <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                </tr>
+                <tr th:each="p:${products}">
+                    <td>
+                        <img th:src="${p.image}" width="200" /> 
+                    </td>
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.name}"></td>
+                    <td th:text="${p.price + ' VND '}"></td>
+                    <td>
+                        <a href='#' class ="btn btn-info">Cap Nhat</a>
+                        <button class=" btn btn-danger">Xoa</button>
+                    </td>
+                </tr>                
             </tbody>
         </table>
     </main>

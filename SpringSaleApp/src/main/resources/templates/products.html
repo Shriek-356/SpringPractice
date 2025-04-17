@@ -1,0 +1,38 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <th:block th:replace="base :: styles"></th:block>
+</head>
+
+<body>
+    <div th:replace ="base :: header"></div>
+    <main>
+        <h1 class ="text-center text-info mt-1">Quan Ly San Pham</h1>
+        
+        <form method="post" th:action="@{/add}" th:object="${product}">
+            <div class="mb-3 mt-3">
+                <label for="name">Ten San Pham</label>
+                <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Ten San Pham"> <!Dung th:field de lien ket cac truong trong pojo>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="price">Gia San Pham</label>
+                <input type="text" class="form-control" th:field="*{price}" id="price" placeholder="Gia San Pham">
+            </div>
+            
+            <div class="mb-3 mt-3">
+                <label for="cate">Danh muc</label>
+                <select class="form-select" id="cate" th:field="*{categoryId}">
+                    <option th:each="c:${categories}" th:text="${c.name}" th:value ="${c.id}"></option>
+                </select>
+            </div>
+            
+            <div class="mb-3 mt-3">
+                <button class="btn btn-info">Them san Pham</button>
+            </div>
+        </form>
+    </main>
+    <div th:replace ="base :: footer"></div>
+
+</body>
+
+</html>
