@@ -9,7 +9,7 @@
     <main>
         <h1 class ="text-center text-info mt-1">Quan Ly San Pham</h1>
         
-        <form method="post" th:action="@{/add}" th:object="${product}">
+        <form method="post" th:action="@{/add}" th:object="${product}" enctype="multipart/form-data">
             <div class="mb-3 mt-3">
                 <label for="name">Ten San Pham</label>
                 <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Ten San Pham"> <!Dung th:field de lien ket cac truong trong pojo>
@@ -24,6 +24,13 @@
                 <select class="form-select" id="cate" th:field="*{categoryId}">
                     <option th:each="c:${categories}" th:text="${c.name}" th:value ="${c.id}"></option>
                 </select>
+            </div>
+            
+            <div class="mb-3 mt-3"
+                <label for="image">Anh San Pham</label>
+                <input type="file" class="form-control" th:field="*{file}" >
+                
+                <img th:src="${product.image}" width="200" th:if="${product.id!=null}">
             </div>
             
             <div class="mb-3 mt-3">

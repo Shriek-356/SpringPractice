@@ -7,23 +7,23 @@
 <body>
     <div th:replace ="base :: header"></div>
     <main>
-        
+
         <a th:href="@{/products}" class="btn btn-success mt-1">Them san pham</a>
 
         <form th:action="@{/}">
             <div class="mb-3 mt-3">
                 <input type="text" class="form-control" placeholder="Từ khóa" name="kw">
             </div>
-            
+
             <div class="row">
                 <div class="col-6">
-                <input type="number" class="form-control" placeholder="Giá min" name="fromPrice">
+                    <input type="number" class="form-control" placeholder="Giá min" name="fromPrice">
                 </div>
                 <div class="col-6"> 
-                <input type="number" class="form-control" placeholder="Giá max" name="toPrice">
+                    <input type="number" class="form-control" placeholder="Giá max" name="toPrice">
                 </div>
             </div>
-            
+
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
@@ -47,14 +47,14 @@
                     <td th:text="${p.price + ' VND '}"></td>
                     <td>
                         <a th:href="@{/products/{id}(id=${p.id})}" class ="btn btn-info">Cap Nhat</a>
-                       <a th:href="@{/delete/{id}(id=${p.id})}" class ="btn btn-info">Xoa</a>
+                        <a th:onclick="'deleteProduct(\'' + @{/api/products} + '\', ' + ${p.id} + ')'" class ="btn btn-info">Xoa</a>
                     </td>
                 </tr>                
             </tbody>
         </table>
     </main>
     <div th:replace ="base :: footer"></div>
-
+<script th:src="@{/js/main.js}"></script>
 </body>
 
 </html>
