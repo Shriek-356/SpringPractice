@@ -1,0 +1,36 @@
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Dang Nhap</title>
+    <th:block th:replace="base :: styles"></th:block>
+</head>
+
+<body>
+    <div th:replace ="base :: header"></div>
+    <main>
+        <h1 class ="text-center text-info mt-1">Dang nhap</h1>
+        
+        <form method="post" th:action="@{/login}" >
+            <div class="mb-3 mt-3">
+                <label for="username">Ten Dang Nhap</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Nhap ten dang nhap"> 
+            </div>
+            
+            <div class="mb-3 mt-3">
+                <label for="password"></label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Nhap mat khau"> 
+            </div>
+           
+            <div class="mb-3 mt-3">
+                <button class="btn btn-info">
+                    <span >Dang Nhap</span>                  
+                </button>
+            </div>
+        </form>
+    </main>
+    <div th:replace ="base :: footer"></div>
+
+</body>
+
+</html>

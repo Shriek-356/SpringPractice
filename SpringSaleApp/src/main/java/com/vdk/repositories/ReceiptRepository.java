@@ -4,13 +4,13 @@
  */
 package com.vdk.repositories;
 
-import com.vdk.pojo.User;
+import com.vdk.pojo.Cart;
+import java.util.List;
 
 /**
  *
  * @author Asus
  */
-public interface UserRepository {
-    public User getUserByName(String name);
-    public User addUser (User user);
+public interface ReceiptRepository {
+    public void addReceipt(List<Cart> carts);
 }

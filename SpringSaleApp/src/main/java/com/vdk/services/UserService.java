@@ -5,7 +5,9 @@
 package com.vdk.services;
 
 import com.vdk.pojo.User;
+import java.util.Map;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -13,4 +15,5 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  */
 public interface UserService extends UserDetailsService{
     public User getUserByName(String name);
+    public User addUser(Map<String, String> params, MultipartFile avatar);
 }

@@ -32,11 +32,18 @@ public class UserRepositoryImpl implements UserRepository {
             
             Query q = s.createNamedQuery("User.findByUsername", User.class);
             
-            q.setParameter("userName", name);
+            q.setParameter("username", name);
             
             return (User) q.getSingleResult();
             
-   
+    }
+
+    @Override
+    public User addUser(User user) {
+       Session s = this.factory.getObject().getCurrentSession();
+       s.persist(user);//Luu user vao database bang hibernate
+       s.refresh(user);
+       return user;
     }
     
 }

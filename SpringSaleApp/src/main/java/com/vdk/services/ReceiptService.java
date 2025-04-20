@@ -2,15 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.vdk.repositories;
+package com.vdk.services;
 
-import com.vdk.pojo.User;
+import com.vdk.pojo.Cart;
+import java.util.List;
 
 /**
  *
  * @author Asus
  */
-public interface UserRepository {
-    public User getUserByName(String name);
-    public User addUser (User user);
+public interface ReceiptService {
+    public void addReceipt(List<Cart> carts);
 }
